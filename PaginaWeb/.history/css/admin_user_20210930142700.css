@@ -65,7 +65,7 @@
     border-collapse: separate;
     border-spacing: 0px;
     border-radius: 5px;
-    border: 3px solid #8ECAE6;
+    border: 3px solid rgb(189, 193, 216);
     
   }
  
@@ -73,7 +73,7 @@
     width: 4em;
   }
   .table_entity td:nth-child(3) {
-    width: 7.5em;
+    width: 3em;
   }
   .table_entity td:nth-child(5) {
     width: 12em;
@@ -92,7 +92,7 @@
   .table_header {
     background-color: #023047;
     color: #fff;
-    font-weight:bold;
+   
   }
   
   .table_entity tr:nth-child(even) {
@@ -110,7 +110,7 @@
   border-collapse: separate;
   border-spacing: 0px;
   border-radius: 5px;
-  border: 3px solid #8ECAE6;
+  border: 3px solid rgb(189, 193, 216);
   
 }
 
@@ -124,7 +124,7 @@
 
 
 .table_entity2 td:nth-child(6) {
-  width: 4.8em;
+  width: 4.5em;
   
 }
 
@@ -159,27 +159,6 @@ background-color: #ece4e4;
   text-decoration: none;
   
 }
-/* css tabla productos*/
-
-.table_entity3 {
-  table-layout: fixed;
-  width: 84%;
-  margin: 0 auto;
-  border-collapse: separate;
-  border-spacing: 0px;
-  border-radius: 5px;
-  border: 3px solid #8ECAE6;
-  
-}
-.table_entity3 td:first-child {
-  width: 4em;
-}
-.table_entity3 td:nth-child(2) {
-  width: 10em;
-}
-.table_entity3 td:nth-child(3) {
-  width: 18em;
-}
 /* css checkbox */
 
 .checkbox_container input[type="checkbox"]  {
@@ -207,5 +186,4 @@ background-color: #ece4e4;
   border-top: 0;
     
 }
-
   

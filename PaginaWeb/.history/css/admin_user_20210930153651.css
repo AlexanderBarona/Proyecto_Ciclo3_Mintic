@@ -174,11 +174,9 @@ background-color: #ece4e4;
 .table_entity3 td:first-child {
   width: 4em;
 }
+  
 .table_entity3 td:nth-child(2) {
-  width: 10em;
-}
-.table_entity3 td:nth-child(3) {
-  width: 18em;
+  width: 16em;
 }
 /* css checkbox */
 

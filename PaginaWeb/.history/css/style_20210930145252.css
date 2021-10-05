@@ -10,19 +10,12 @@ header {
   background-color: #023047;
   color:  white;
   padding-left:2em ;
-  height:4em;
-  width:100%;
-  margin-bottom: 3em;
 
 }
 
 footer{
   background-color: #FB8500;
   color:  #FB8500;
-  position:fixed;
-  left:0px;
-  bottom:0px;
-  height:4em;
-  width:100%;
+  position: absolute;
 }
 
