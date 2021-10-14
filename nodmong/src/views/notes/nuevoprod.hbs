@@ -1,0 +1,37 @@
+{{#each errors }}
+<div class="alert alert-danger" role="alert">
+  {{text}}
+</div>
+
+{{/each}}
+
+¨<div class="col-md-4 mx-auto">
+<div class="card"> 
+    <div class="card-body">
+<h3>Nuevo Producto</h3>
+    </div>
+    <div class="card-body">
+        <form action="/notes/nuevoprod" method="post">
+        <div class="form-group">
+           <input type="text" name="descripcion" class="form-control" placeholder="Descripción del producto" autofocus> 
+        </div>
+        <div class="form-group">
+           <input type="text" name="categoria" class="form-control" placeholder="categoria del producto" > 
+        </div>
+        <div class="form-group">
+           <input type="text" name="valorUnitario" class="form-control" placeholder="valor Unitario" > 
+        </div>
+        <div class="form-group">
+           <input type="text" name="estado" class="form-control" placeholder="Estado del producto" > 
+        </div>
+        
+        <div class="form-group" >
+            <button class="btn btn-primary btn-blocl" type="submit">
+                Enviar
+            </button>
+        </div>
+        </form>
+    </div>
+    
+</div> 
+</div>
