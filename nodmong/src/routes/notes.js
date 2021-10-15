@@ -35,6 +35,7 @@ router.get('/add', (req, res)=>{
     } else{
         const nuevoProducto= new Prod({descripcion,categoria,valorUnitario,estado});
         await nuevoProducto.save();
+        req.flash('success_msg','Producto Creado Satisfactoriamente');
         res.redirect('/listado');
     }
     
@@ -55,14 +56,20 @@ router.get('/edit/:id', async (req, res) => {
 
 router.put('/notes/editprod/:id', async (req, res) => {
     const{descripcion, categoria, valorUnitario, estado} = req.body;
-await Prod.findByIdAndUpdate(req.params.id,  {descripcion, categoria, valorUnitario, estado});
-res.redirect('/listado');
+    await Prod.findByIdAndUpdate(req.params.id,  {descripcion, categoria, valorUnitario, estado}).lean();
+    req.flash('success_msg','Producto Editado Satisfactoriamente');
+    res.redirect('/listado');
 });
 
-router.delete('/delete/:id', async (req, res) => {
 
+
+router.delete('/delete/:id', async (req, res) => {
     await Prod.findByIdAndDelete(req.params.id);
-res.redirect('/listado');
-  });
+    req.flash('success_msg','Producto Eliminado Satisfactoriamente');
+    res.redirect('/listado');
+});
+
+
+
 
 module.exports= router; 

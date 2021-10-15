@@ -3,7 +3,7 @@ const path= require('path');
 const exphbs =require('express-handlebars');
 const methodOverride=require('method-override');
 const session = require('express-session');
-//import cors from "cors";
+const flash=require('connect-flash');
 //inicializaciones
 const app = express();
 require('./database');
@@ -29,11 +29,15 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-
+app.use(flash());
 //app.use(cors());
 
 // global variables
-
+app.use((req, res, next)=> {
+res.locals.success_msg= req.flash('success_msg');
+res.locals.error_msg= req.flash('error_msg');
+    next();
+});
 // routes
 app.use(require('./routes/index'));
 app.use(require('./routes/users'));

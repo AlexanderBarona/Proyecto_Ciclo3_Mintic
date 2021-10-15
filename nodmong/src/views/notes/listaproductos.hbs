@@ -1,26 +1,41 @@
-<div class="card"> <div class="card-body"><h1>Gwen</h1></div> 
-                 <div class="form-group" ><a href="/add" class="btn btn-success btn-lg">Ir a formulario de ingreso </a></div>
 
-<div class="row">
-     
+<div class="card"> 
+  <div class="card-body"><h1>Gwen -  Listado de Productos</h1> </div> 
+                 
+                 
+  <div class="form-group" ><a href="/add" class="btn btn-outline-warning btn-sm">Nuevo </a>
+  </div>
+
+
+     <table> 
+    <tr class="bg-warning">
+    <td><h5 class="text-dark">Descripción</h5></td>
+		<td><h5 class="text-dark">Categoría </h5></td>
+		<td><h5 class="text-dark">Valor Unitario</h5></td>
+		<td><h5 class="text-dark">Estado</h5></td>
+		<td><h5 class="text-dark">Acciones</h5></td>
+		 </tr>
 {{#each lista}}
 <div class="card">
-    <div class="card-body">
-        <h4 class="descripcion">{{this.descripcion}}  
-        </h4>
- {{this.categoria}}  {{this.valorUnitario}}  {{this.estado}}
- <form action="/delete/{{this._id}}?_method = delete" method="post">
-   <input type="hidden" name="_method" value="delete">
-   <button class="btn btn-danger btn-sm" type="submit">Borrar</button> <a href="/edit/{{_id}}"> <i class="fas fa-pen"></i></a></form>
-  
-   </div>
+    
+     <tr>
+    <td>{{this.descripcion}}</td>
+		<td>{{this.categoria}}</td>
+		<td>{{this.valorUnitario}}</td>
+		<td>{{this.estado}}</td>
+		<td><a href="/edit/{{_id}}"> <i class="fas fa-pen"></i></a> <form action="/delete/{{_id}}?_method=DELETE" method="post">
+ <input type="hidden" name="_method" value="PUT"> <button class="btn btn-outline-danger btn-sm" type="submit">Borrar</button>
+ 
+ </form>
+     
+
+</td> 
+ </tr>
 </div>
-
-{{else}} 
-<div class="card mx-auto"><div class="card-body"> <p class="lead">No se encontraron productos</p>
-<a href="/add" class="btn btn-success btn-block">Ingresar Productos </a></div></div>
-{{/each}}
-
+ {{else}} 
+<p class="lead">No se encontraron productos</p>
+<a href="/add" class="btn btn-success btn-block">Ingresar Productos </a>
+{{/each}} 
+</table>
 </div>
-
     
