@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
-
-const URL_ATLAS = 'mongodb+srv://admin:@cluster0.f2hkf.mongodb.net/prueba?retryWrites=true&w=majority';
-
+const URL_ATLAS = require('./env');
 mongoose.connect(URL_ATLAS, {useNewUrlParser:true, useUnifiedTopology:true});
 
 const connection = mongoose.connection;
