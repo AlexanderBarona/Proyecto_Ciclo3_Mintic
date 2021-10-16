@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const URL_ATLAS = require('./env');
+const URL_ATLAS = require('../../route/env');
 mongoose.connect(URL_ATLAS, {useNewUrlParser:true, useUnifiedTopology:true});
 
 const connection = mongoose.connection;
