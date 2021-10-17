@@ -1,9 +1,4 @@
-{{#each errors }}
-<div class="alert alert-danger" role="alert">
-  {{text}}
-</div>
 
-{{/each}}
 
 ¨<div class="col-md-4 mx-auto">
 <div class="card"> 
@@ -16,28 +11,28 @@
         <div class="formulario">
         <label for="descripcion" class="formulario__label"><h5>Descripción</h5></label>
         <div class="form-group">
-           <input type="text" name="descripcion" class="form-control" placeholder="Descripción del producto" autofocus> 
+           <input type="text" name="descripcion" class="form-control" placeholder="Descripción del producto" autofocus required> 
         </div>
         </div>
                     <div>&nbsp;</div>
         <div class="formulario">
         <label for="categoria" class="formulario__label"><h5>Categoría</h5></label>
         <div class="form-group">
-            <input type="text" name="categoria" class="form-control" placeholder="categoria del producto" > 
+            <input type="text" name="categoria" class="form-control" placeholder="categoria del producto" required> 
         </div>
         </div>
                 <div>&nbsp;</div>
          <div class="formulario">
         <label for="valor" class="formulario__label"><h5>Valor Unitario</h5></label>
         <div class="form-group">
-           <input type="text" name="valorUnitario" class="form-control" placeholder="valor Unitario" > 
+           <input type="text" name="valorUnitario" class="form-control" placeholder="valor Unitario" required > 
         </div>
          </div>
                 <div>&nbsp;</div>
         <div class="formulario">
         <label for="estado" class="formulario__label"><h5>Estado</h5></label> 
         <div class="form-group">
-           <input type="text" name="estado" class="form-control" placeholder="Estado del producto" > 
+           <input type="text" name="estado" class="form-control" placeholder="Estado del producto" required> 
         </div>
         </div>
         <div>&nbsp;</div>

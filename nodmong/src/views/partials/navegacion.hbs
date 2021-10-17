@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #023047;">
+  <div class="container">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,16 +11,46 @@
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Promociones</a>
+        <a class="nav-link" href="/listado">Productos</a>
       </li>
-  <li class="nav-item">
-        <a class="nav-link" href="#">Categoría 1</a>
+      <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Administrar Productos
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <li><a class="dropdown-item" href="listado">Buscar Producto</a></li>
+      <li><a class="dropdown-item" href="/add">Nuevo Producto</a></li>
+      <li><a class="dropdown-item" href="/listado">Eliminar Producto</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="#">Buscar Producto</a></li>
+      </ul>
       </li>
-       <li class="nav-item">
-        <a class="nav-link" href="#">Categoría 2</a>
+      <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="/listuser" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Usuarios
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <li><a class="dropdown-item" href="/adduser">Nuevo Usuario</a></li>
+      <li><a class="dropdown-item" href="/listuser">Eliminar Usuario</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="/listuser">Buscar Usuario</a></li>
+      </ul>
       </li>
+
+<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Mi Cuenta
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/users/signin">Signin</a></li>
+            <li><a class="dropdown-item" href="/users/signup">Signup</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/users/logout">Logout</a></li>
+          </ul>
+        </li>
+        
         <li class="nav-item">
-        <a class="nav-link" href="#">Mi Cuenta</a>
+        <a class="nav-link" href="#">Otro</a>
       </li>
       
       <li class="nav-item">
@@ -27,5 +58,6 @@
       </li>
     </ul>
     
+  </div>
   </div>
 </nav>

@@ -1,6 +1,7 @@
 const router= require('express').Router();
-
 const Prod =require('../models/Producto');
+
+
 
 
 router.get('/add', (req, res)=>{
@@ -41,7 +42,7 @@ router.get('/add', (req, res)=>{
     
 });
 
-router.get('/listado', async(req, res)=>{
+router.get('/listado',  async(req, res)=>{
     
 const lista = await Prod.find().lean();
     
@@ -49,12 +50,12 @@ const lista = await Prod.find().lean();
  
 });
 
-router.get('/edit/:id', async (req, res) => {
+router.get('/edit/:id',  async (req, res) => {
     const prodamod= await Prod.findById(req.params.id).lean();
     res.render('notes/editprod', {prodamod});
 });
 
-router.put('/notes/editprod/:id', async (req, res) => {
+router.put('/notes/editprod/:id',  async (req, res) => {
     const{descripcion, categoria, valorUnitario, estado} = req.body;
     await Prod.findByIdAndUpdate(req.params.id,  {descripcion, categoria, valorUnitario, estado}).lean();
     req.flash('success_msg','Producto Editado Satisfactoriamente');
