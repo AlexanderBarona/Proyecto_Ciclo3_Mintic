@@ -7,21 +7,24 @@ POST http://localhost:3001/ventas HTTP/1.1
 content-type: application/json
 
 {
-    "dni": 101001,
-    "name": "Jota Jota Pelaez",
-    "age": 56,
-    "semester": 3
+    "Id": 2,
+    "valorTotal": 500000,
+    "nombreCliente":"Andres felipe rodriguez",
+    "nId": 10304950,
+    "state": "En proceso"
 }
 
 ###
-DELETE {{urlBase}}/ventas/616a3504d46f153f3a239c7d
+DELETE {{urlBase}}/ventas/616adce8ca1a2df4eafe8ec4
 ###
-PUT http://localhost:3001/ventas/616acf668c76488f049d8319
+PUT http://localhost:3001/ventas/616c4033245dd3d94e65274f
 content-type: application/json
 
 {
-    "dni": 546589,
-    "name": "Juan Manuel Cuervo",
-    "age": 16,
-    "semester": 3
+    
+    "Id": 1,
+    "valorTotal": 1000000,
+    "nombreCliente":"Andres felipe rodriguez",
+    "nId": 10408970,
+    "state": "En proceso"
 }
