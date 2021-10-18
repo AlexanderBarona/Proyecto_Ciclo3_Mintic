@@ -8,15 +8,18 @@ import VentaList from './componentes/VentaList';
 class App extends React.Component{
   constructor(props){
     super(props);
-    const emptyVenta = {idVenta:'',valorTotal:'',fecha:'',nombreCliente:'',nId:'',state:''};
+    this.emptyVenta = {Id:'',valorTotal:'',fecha:'',nombreCliente:'',nId:'',state:''};
     const initVentas = [
-      {Id:3,valorTotal:50000,nombreCliente:'juan',nId:395049,state:'en proceso'}
+      {Id:3,valorTotal:50000,fecha:'10/10/2010',nombreCliente:'juan',nId:395049,state:'en proceso'}
     ];
     this.state = {
       ventas :initVentas,
-      selectedVentas: emptyVenta
+      selectedVentas: this.emptyVenta
     };
     this.onFormChange = this.onFormChange.bind(this);
+    this.onEditVenta = this.onEditVenta.bind(this);
+    this.onDeleteVenta = this.onDeleteVenta.bind(this);
+    this.onClearVenta = this.onClearVenta.bind(this);
   }
 
   componentDidMount(){
@@ -33,12 +36,32 @@ class App extends React.Component{
     console.log('cambio el formulario');
   }
 
+  onEditVenta(venta){
+    console.log('quiero editar un estudiante',venta);
+    this.setState({selectedVentas:venta});
+  }
+
+  onDeleteVenta(ventaId){
+    console.log('quiero eliminar un estudiante',ventaId);
+  }
+
+  onClearVenta(){
+    console.log('limpiar');
+    this.setState({selectedVentas: this.emptyVenta});
+  }
+
   
   render(){
     return(
       <div className="container"> 
-      <VentaList ventas={this.state.ventas}/>
-      <VentaForm venta={this.state.selectedVentas} onFormChange={this.onFormChange}/>
+      <VentaList ventas={this.state.ventas} 
+      onEditVenta={this.onEditVenta}
+      onDeleteVenta={this.onDeleteVenta}
+      />
+      <VentaForm venta={this.state.selectedVentas} 
+      onFormChange={this.onFormChange}
+      onClearVenta = {this.onClearVenta}
+      />
       </div>
     );
   }

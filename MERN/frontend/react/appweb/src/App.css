@@ -1,0 +1,23 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.lista {
+    float: left;
+    width: 100%;
+}
+
+.lista table {
+    border: 1px solid black;
+}
+
+.encabezado {
+    background-color: #023047;
+    color: white;
+    border-radius: 3px;
+}
+
+.formulario {
+    float: left;
+}
