@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gestion de vendedores</title>
+
+    <link rel="stylesheet" href="CSS/estilos2.css"/>
+</head>
+<body >
+    
+    <div class="form-register">
+        <form id="formulario">
+            <h1>Gestion de vendedores</h1>
+
+            <input class="controls" type="text" placeholder="digite identificacion" name="indentificacion" onkeypress="return numeros(event);">
+            <input class="controls" type="text" placeholder="digite su nombre" name="nombre" onkeypress="return letras(event)">
+            <input class="controls" type="text" placeholder="digite numero de celular" name="telefono" onkeypress="return numeros(event)">
+            <select class="controls" placeholder="seleccionar especialidad">
+                <option value="">opcion 1</option>
+                <option value="">opcion 2</option>
+                <option value="">opcion 3</option>
+                
+            </select>
+            <input class="controls" type="date" placeholder="fecha de ingreso">
+            <input class="botons" type="submit" onclick="valores()" value="Guardar">
+        </form>
+    </div>
+
+
+    <script src="app.js "></script>
+    
+</body>
+</html>
