@@ -1,6 +1,7 @@
 const router= require('express').Router();
 const User = require('../models/User');
 const passport = require('passport');
+require('dotenv').config();
 
 router.get('/users/signin', (req, res)=>{
     res.render('users/signin');
@@ -15,6 +16,19 @@ failureFlash: true
 
 router.get('/users/signup', (req, res)=>{
     res.render('users/signup');
+});
+
+router.get('/users/google', passport.authenticate('google', { scope: ['profile'] }));
+
+router.get('/users/in', 
+  passport.authenticate('google', { failureRedirect: '/adduser' }),
+  (res, req) => {
+    res.redirect('/listausuarios');
+  }
+);
+router.get('/logout', (req, res) =>{
+    req.logout();
+    res.redirect('/');
 });
 
 
@@ -90,6 +104,8 @@ res.render('users/edituser',{useramod});
         res.redirect('users/listausuarios');
     });
 
-
+router.get('/users/in', async (req, res) =>{
+    res.render('users/entrada');
+});
 
 module.exports= router;
