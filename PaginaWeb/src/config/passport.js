@@ -1,6 +1,7 @@
 const passport = require('passport');
+require('dotenv').config();
 const LocalStrategy = require('passport-local').Strategy;
-
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const User = require('../models/User');
 
 passport.use(new LocalStrategy({
@@ -19,6 +20,37 @@ if(!user) {
     }
 }
 } ));
+
+
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_ID,
+    clientSecret: process.env.GOOGLE_SECRET,
+    callbackURL: "/"
+  },
+  async(accessToken, refreshToken,profile,done)=>{
+    console.log(profile);
+    const newUser = {
+      _id  : profile.id,
+      nombre    : profile.displayName,
+      email     :   profile.email
+      
+    }
+    try{
+      let user = await User.findOne({_id : profile.id});
+
+      if(user) {
+        done(null,user)
+      }
+      else {
+        user= await User.save();
+        done(null,user); 
+      }
+    }catch(err) {
+      console.log(err);
+    }
+}));
+  
+
 
 passport.serializeUser((user, done) => {
 done(null, user.id);
