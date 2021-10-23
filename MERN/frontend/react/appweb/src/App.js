@@ -1,67 +1,41 @@
-import axios from 'axios';
 import React from 'react';
 import'./App.css';
-import VentaForm from './componentes/VentaForm';
-import VentaList from './componentes/VentaList';
+import {Ventas} from './componentes/Ventas';
 
 
 class App extends React.Component{
+  URL = 'http://localhost:3000';
   constructor(props){
     super(props);
-    this.emptyVenta = {Id:'',valorTotal:'',fecha:'',nombreCliente:'',nId:'',state:''};
-    const initVentas = [
-      {Id:3,valorTotal:50000,fecha:'10/10/2010',nombreCliente:'juan',nId:395049,state:'en proceso'}
-    ];
+    console.log('constructor:',window.location.pathname);
+
+  
     this.state = {
-      ventas :initVentas,
-      selectedVentas: this.emptyVenta
-    };
-    this.onFormChange = this.onFormChange.bind(this);
-    this.onEditVenta = this.onEditVenta.bind(this);
-    this.onDeleteVenta = this.onDeleteVenta.bind(this);
-    this.onClearVenta = this.onClearVenta.bind(this);
+      isVentasVisible:window.location.pathname === '/ventas'
+    }
   }
 
-  componentDidMount(){
-    const URL = 'http://localhost:3001'
-    axios.get(URL+'/ventas').then((resp)=>{
-      console.log('Esta es la respuesta de listar estudiantes',resp);
-      this.setState({ventas:resp.data});
-    }).catch(err =>{
-      console.log('Hubo un error',err);
-    });
+  showVentas = ()=>{
+    console.log('showventas');
+    this.setState({isVentasVisible:false});
   }
 
-  onFormChange(){
-    console.log('cambio el formulario');
-  }
-
-  onEditVenta(venta){
-    console.log('quiero editar un estudiante',venta);
-    this.setState({selectedVentas:venta});
-  }
-
-  onDeleteVenta(ventaId){
-    console.log('quiero eliminar un estudiante',ventaId);
-  }
-
-  onClearVenta(){
-    console.log('limpiar');
-    this.setState({selectedVentas: this.emptyVenta});
-  }
 
   
   render(){
+    console.log(window.location.pathname);
+    let contenToShow = <div>pagina incorrecta</div>
+    if(this.state.isVentasVisible){
+      window.history.pushState({},'','/ventas');
+      contenToShow=<Ventas/>;
+    }
     return(
       <div className="container"> 
-      <VentaList ventas={this.state.ventas} 
-      onEditVenta={this.onEditVenta}
-      onDeleteVenta={this.onDeleteVenta}
-      />
-      <VentaForm venta={this.state.selectedVentas} 
-      onFormChange={this.onFormChange}
-      onClearVenta = {this.onClearVenta}
-      />
+        <div>
+          <button type="button" onClick={this.showVentas}>Ventas</button>
+          <a href='/ventas'>ventas</a>
+          {contenToShow}
+        </div>
       </div>
     );
   }

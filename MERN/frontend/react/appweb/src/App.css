@@ -1,11 +1,38 @@
+#form {
+    display: none
+}
+
+.formulario {
+    float: right;
+    margin-left: 20px;
+}
+
 .container {
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 1400px;
 }
 
 .lista {
     float: left;
-    width: 100%;
+}
+
+.lista table tr:nth-child(even) {
+    background-color: #ece4e4;
+}
+
+.lista table td:first-child {
+    width: 4em;
+}
+
+.lista table td:nth-child(9) {
+    width: 5em;
+}
+
+.lista table td:nth-child(8) {
+    width: 5em;
+}
+
+.lista table td:nth-child(5) {
+    width: 12em;
 }
 
 .lista table {
@@ -18,6 +45,8 @@
     border-radius: 3px;
 }
 
-.formulario {
-    float: left;
+th,
+td {
+    padding: 0.4em;
+    margin: 0em;
 }

@@ -1,3 +1,4 @@
+const ventaModel = require('../modelado/venta');
 listVentas = (req,res)=>{ /*traer los datos*/
     console.log(req.params);
     ventaModel.find().then((data)=>{
