@@ -20,7 +20,10 @@ getVentas = (req,res)=>{ /*traer un solo dato*/
 createVentas =  (req,res)=>{ /*crear*/
     console.log(req.params, req.body,req.headers);
     ventaModel.create({
-        dni:1234567
+        valorTotal: 2000000,
+        nombreCliente:"Victor rodriguez",
+        nId: 10408870,
+        state: "En proceso"
     }).then((data)=>{
         res.json(data);
     }).catch(err=>{

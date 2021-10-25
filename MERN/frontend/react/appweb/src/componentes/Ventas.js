@@ -8,6 +8,7 @@ import VentaList from './VentaList';
 export class Ventas extends React.Component{
   constructor(props){
     super(props);
+    this.ruta = 'http://localhost:3001/ventas';
     this.emptyVenta = { _id:'',valorTotal:'',fecha:'',nombreCliente:'',nId:'',state:''};
     /*const initVentas = [
       {Id:3,valorTotal:50000,fecha:'10/10/2010',nombreCliente:'juan',nId:395049,state:'en proceso'}
@@ -27,12 +28,13 @@ export class Ventas extends React.Component{
     const URL = 'http://localhost:3001/ventas'
     axios.get(URL).then((resp)=>{
       console.log('Esta es la respuesta de listar estudiantes',resp);
+      //const ventas = resp.data.filter(st => st.nId===10408970);
       this.setState({ventas:resp.data});
     }).catch(err =>{
       console.log('Hubo un error',err);
     });
   }
-
+//resp.data
   onFormChange(ventaCurrentState){
     console.log('cambio el formulario',ventaCurrentState);
     this.setState({selectedVentas: ventaCurrentState});
@@ -46,6 +48,15 @@ export class Ventas extends React.Component{
 
   onDeleteVenta(ventaId){
     console.log('quiero eliminar una venta',ventaId);
+    var confirmar = window.confirm("El elemento se eliminara permanentemente");
+    if(confirmar===true){
+      axios.delete(`${this.ruta}/${ventaId}`).then(data=>{
+        this.setState((state,props)=>({
+          ventas:this.state.ventas.filter(st=>st._id !== ventaId),
+          selectedVentas:this.emptyVenta
+        }))
+      }).catch(err =>{console.log('error borrando')});
+    }
   }
 
   onClearVenta(){

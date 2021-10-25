@@ -1,7 +1,7 @@
 import React from 'react';
 import'./App.css';
 import {Ventas} from './componentes/Ventas';
-
+import {Login} from './componentes/Login';
 
 class App extends React.Component{
   URL = 'http://localhost:3000';
@@ -34,6 +34,7 @@ class App extends React.Component{
         <div>
           <button type="button" onClick={this.showVentas}>Ventas</button>
           <a href='/ventas'>ventas</a>
+          <Login/>
           {contenToShow}
         </div>
       </div>
