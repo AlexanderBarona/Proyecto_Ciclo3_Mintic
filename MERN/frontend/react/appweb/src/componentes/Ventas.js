@@ -25,8 +25,11 @@ export class Ventas extends React.Component{
   }
 
   componentDidMount(){
-    const URL = 'http://localhost:3001/ventas'
-    axios.get(URL).then((resp)=>{
+    axios.get(this.ruta,{
+      headers:{
+        'token':sessionStorage.getItem('token')
+      }
+    }).then((resp)=>{
       console.log('Esta es la respuesta de listar estudiantes',resp);
       //const ventas = resp.data.filter(st => st.nId===10408970);
       this.setState({ventas:resp.data});
@@ -50,7 +53,11 @@ export class Ventas extends React.Component{
     console.log('quiero eliminar una venta',ventaId);
     var confirmar = window.confirm("El elemento se eliminara permanentemente");
     if(confirmar===true){
-      axios.delete(`${this.ruta}/${ventaId}`).then(data=>{
+      axios.delete(`${this.ruta}/${ventaId}`,{
+        headers:{
+          'token':sessionStorage.getItem('token')
+        }
+      }).then(data=>{
         this.setState((state,props)=>({
           ventas:this.state.ventas.filter(st=>st._id !== ventaId),
           selectedVentas:this.emptyVenta
@@ -68,7 +75,11 @@ export class Ventas extends React.Component{
     evt.preventDefault();
     const venta = this.state.selectedVentas;
     console.log('vamos a hacer un PUT', this.state.selectedVentas);
-      axios.put(`${'http://localhost:3001/ventas'}/${venta._id}`, { ...venta }).then((resp) => {
+      axios.put(`${'http://localhost:3001/ventas'}/${venta._id}`, { ...venta },{
+        headers:{
+          'token':sessionStorage.getItem('token')
+        }
+      }).then((resp) => {
         console.log('Todo correcto', resp);
         this.setState((state, props) => ({
           ventas: state.ventas.map(st => st._id === venta._id ? venta : st),
@@ -84,6 +95,10 @@ export class Ventas extends React.Component{
   render(){
     return(
       <div className="container"> 
+        <div className="banner">
+          <h1>Administración ventas</h1>
+          <input type="text" placeholder="Buscar.." className="buscador"/> 
+        </div> 
       <VentaList ventas={this.state.ventas} 
       onEditVenta={this.onEditVenta}
       onDeleteVenta={this.onDeleteVenta}

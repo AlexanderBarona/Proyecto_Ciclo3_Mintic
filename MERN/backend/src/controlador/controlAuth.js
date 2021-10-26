@@ -22,7 +22,7 @@ googleAuth=(req,res)=>{
     }).then(user=>{
         console.log(user);
         //crear token para la aplicacion
-        var tokenApp = jwt.sing({user:user},pas);
+        var tokenApp = jwt.sign({user:user},pas);
         res.json(tokenApp);
     }).catch(err=>{
         console.log(err);

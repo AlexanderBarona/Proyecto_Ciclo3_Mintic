@@ -11,42 +11,42 @@ class VentaForm extends React.Component{
     render(){
         const venta = this.props.venta;
         return (
-            <div className="formulario" onSubmit={this.props.onSaveVenta} id='form'>
+            <aside className="formulario" onSubmit={this.props.onSaveVenta} id='form'>
                 <form className='f'>
-                    <div>
-                        <label >Id</label>
+                    <div classname="campos">
+                        <label >Id: </label>
                         <input type="text" value={venta._id} disabled/>
                     </div>
-                    <div>
-                        <label >Valor Total</label>
+                    <div classname="campos">
+                        <label >Valor Total: </label>
                         <input type="number" value={venta.valorTotal}disabled/>
                     </div>
-                    <div>
-                        <label >Fecha</label>
+                    <div classname="campos">
+                        <label >Fecha: </label>
                         <input type="text" value={venta.fecha} disabled/>
                     </div>
-                    <div>
-                        <label>Nombre del cliente</label>
+                    <div classname="campos">
+                        <label>Nombre del cliente: </label>
                         <input type="text" value={venta.nombreCliente}disabled/>
                     </div>
-                    <div>
-                        <label>Numero de identificacion</label>
+                    <div classname="campos">
+                        <label>Numero de identificacion: </label>
                         <input type="number" value={venta.nId}disabled/>
                     </div>
-                    <div>
-                        <label>Modificar estado</label>
+                    <div classname="campos">
+                        <label>Modificar estado: </label>
                         <select name="estado" onChange={this.onStatusChange}>
                             <option value="en proceso">en proceso</option>
                             <option value="cancelado">cancelado</option>
                             <option value="entregado">entregado</option>
                         </select>
                     </div>
-                    <div>
-                        <input type="submit" value="guardar"/>
-                        <input type="button" value="Limpiar" onClick={this.props.onClearVenta}/>
+                    <div className="botones">
+                        <input type="submit" value="Guardar"/>
+                        <input type="button" value="Cerrar" onClick={this.props.onClearVenta}/>
                     </div>
                 </form>
-            </div>
+            </aside>
         );
     }
 }

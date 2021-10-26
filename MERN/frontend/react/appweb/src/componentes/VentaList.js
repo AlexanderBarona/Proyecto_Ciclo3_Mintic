@@ -1,4 +1,8 @@
-import React from "react"
+import React from "react";
+//imagenes
+import IconUpdate from '../img/IconUpdate.ico'
+import IconDelete from '../img/IconDelete.ico'
+
 class VentaList extends React.Component{
   render(){
       const ventas = this.props.ventas;
@@ -10,7 +14,12 @@ class VentaList extends React.Component{
           <td>{st.nombreCliente}</td>
           <td>{st.nId}</td>
           <td>{st.state}</td>
-          <td><button type="button" onClick={()=>this.props.onEditVenta(st)}>editar</button><button type="button" onClick={()=>this.props.onDeleteVenta(st._id)}>eliminar</button></td>
+          <td>
+            <button type="button" onClick={()=>this.props.onEditVenta(st)}><img src={IconUpdate} className="imagen"
+            alt="editar"/></button>
+            <button type="button" onClick={()=>this.props.onDeleteVenta(st._id)}><img src={IconDelete} className="imagen"
+            alt="eliminar"/></button>
+          </td>
         </tr>    
       });
     return(

@@ -29,12 +29,15 @@ class App extends React.Component{
       window.history.pushState({},'','/ventas');
       contenToShow=<Ventas/>;
     }
+    if(!sessionStorage.getItem('token')){
+      window.history.pushState({},'','/login');
+      contenToShow=<Login/>;
+    }
     return(
       <div className="container"> 
         <div>
           <button type="button" onClick={this.showVentas}>Ventas</button>
           <a href='/ventas'>ventas</a>
-          <Login/>
           {contenToShow}
         </div>
       </div>

@@ -6,10 +6,10 @@ import enlace from '../route/env';
 export class Login extends React.Component{
     responseGoogle = (googleResp)=>{
         console.log(googleResp);
-        axios.post('http://localhost:3001/auth/google',{token:googleResp.tokenId})
+        axios.post(`http://localhost:3001/auth/google`,{token:googleResp.tokenId})
         .then(resp=>{
             console.log('token:',resp.data);
-            sessionStorage.setItem('token',JSON.stringify(resp.data));
+            sessionStorage.setItem('token',resp.data);
         })
         .catch(err=>console.log('error',err));
     }
