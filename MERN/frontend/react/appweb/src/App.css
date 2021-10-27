@@ -11,7 +11,7 @@
     }
     
     .container {
-        max-width: 1500px;
+        max-width: 1360px;
         min-width: 1200px;
         margin: 0 auto;
     }
@@ -22,7 +22,7 @@
     
     .lista {
         float: left;
-        width: 75%;
+        width: 70%;
     }
     
     .lista table tr:nth-child(even) {

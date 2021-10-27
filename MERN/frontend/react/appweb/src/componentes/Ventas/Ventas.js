@@ -4,7 +4,7 @@ import axios from 'axios';
 import VentaForm from './VentaForm';
 import VentaList from './VentaList';
 
-
+//export class Ventas extends React.Component
 export class Ventas extends React.Component{
   constructor(props){
     super(props);
@@ -30,7 +30,7 @@ export class Ventas extends React.Component{
         'token':sessionStorage.getItem('token')
       }
     }).then((resp)=>{
-      console.log('Esta es la respuesta de listar estudiantes',resp);
+      console.log('Esta es la respuesta de listar ventas',resp);
       //const ventas = resp.data.filter(st => st.nId===10408970);
       this.setState({ventas:resp.data});
     }).catch(err =>{
@@ -68,7 +68,8 @@ export class Ventas extends React.Component{
 
   onClearVenta(){
     console.log('limpiar');
-    this.setState({selectedVentas: this.emptyVenta});
+    document.getElementById('form').style.display='none';
+    //this.setState({selectedVentas: this.emptyVenta});
   }
 
   onSaveVenta(evt){
@@ -112,4 +113,4 @@ export class Ventas extends React.Component{
     );
   }
 }
-//export default App;
+//export default Ventas;

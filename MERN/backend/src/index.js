@@ -9,10 +9,12 @@ const mongoose = require('./database/connection');
 const rutaVentas = require('./rutas/rutaVentas');
 const rutaUsuarios = require('./rutas/rutaUsuarios');
 const rutaAuth = require('./rutas/rutaAuth');
+const rutaProductos = require('./rutas/rutaProductos');
 
 app.use('/ventas',rutaVentas);
 app.use('/usuarios',rutaUsuarios);
 app.use('/auth',rutaAuth);
+app.use('/productos',rutaProductos);
 //const ventaModel = require('./modelado/venta');
 
 app.listen(3001, ()=>{

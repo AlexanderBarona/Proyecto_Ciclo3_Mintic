@@ -1,5 +1,5 @@
 import React from "react";
-class VentaForm extends React.Component{
+class ProductoForm extends React.Component{
     onStatusChange=(evt)=>{
         const venta = this.props.venta;
         const newVenta = {...venta,state:evt.target.value};
@@ -51,4 +51,4 @@ class VentaForm extends React.Component{
     }
 }
 
-export default VentaForm;
+export default ProductoForm;
